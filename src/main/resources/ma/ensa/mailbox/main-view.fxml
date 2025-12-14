@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ma.ensa.mailbox.controller.MainController"
+            prefHeight="600.0" prefWidth="900.0"
+            stylesheets="@style.css">
+
+    <!-- Top Menu Bar -->
+    <top>
+        <MenuBar>
+            <Menu text="File">
+                <MenuItem text="Refresh Inbox" onAction="#handleRefreshInbox"/>
+                <MenuItem text="Compose Email" onAction="#handleCompose"/>
+                <SeparatorMenuItem/>
+                <MenuItem text="Exit" onAction="#handleExit"/>
+            </Menu>
+            <Menu text="Edit">
+                <MenuItem text="Delete All Inbox" onAction="#handleDeleteAllInbox"/>
+                <MenuItem text="Delete All Outbox" onAction="#handleDeleteAllOutbox"/>
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="About" onAction="#handleAbout"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <!-- Left Sidebar -->
+    <left>
+        <VBox spacing="10" style="-fx-background-color: #f4f4f4; -fx-padding: 10;">
+            <Button text="📥 Inbox" onAction="#showInbox"
+                    prefWidth="150" style="-fx-font-size: 14px;"/>
+            <Button text="📤 Outbox" onAction="#showOutbox"
+                    prefWidth="150" style="-fx-font-size: 14px;"/>
+            <Button text="✉️ Compose" onAction="#handleCompose"
+                    prefWidth="150" style="-fx-font-size: 14px; -fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+            <Separator/>
+            <Label text="Last Update:" style="-fx-font-size: 10px;"/>
+            <Label fx:id="lastUpdateLabel" text="Never" style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+        </VBox>
+    </left>
+
+    <!-- Center Content Area -->
+    <center>
+        <StackPane fx:id="contentArea">
+            <!-- Dynamic content will be loaded here -->
+        </StackPane>
+    </center>
+
+    <!-- Bottom Status Bar -->
+    <bottom>
+        <HBox style="-fx-background-color: #e0e0e0; -fx-padding: 5;">
+            <Label fx:id="statusLabel" text="Ready" style="-fx-font-size: 12px;"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
