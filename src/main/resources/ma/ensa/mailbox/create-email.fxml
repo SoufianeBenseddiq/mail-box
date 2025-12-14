@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ma.ensa.mailbox.controller.OutboxController"
+      spacing="15" style="-fx-padding: 20;">
+
+    <!-- Header -->
+    <Label text="✉️ Compose New Email" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    <Separator/>
+
+    <!-- Form Fields -->
+    <GridPane hgap="10" vgap="15">
+        <columnConstraints>
+            <ColumnConstraints minWidth="80" prefWidth="80"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <!-- To Field -->
+        <Label text="To:" GridPane.columnIndex="0" GridPane.rowIndex="0"
+               style="-fx-font-weight: bold;"/>
+        <TextField fx:id="toField" promptText="recipient@example.com"
+                   GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <!-- Subject Field -->
+        <Label text="Subject:" GridPane.columnIndex="0" GridPane.rowIndex="1"
+               style="-fx-font-weight: bold;"/>
+        <TextField fx:id="subjectField" promptText="Email subject"
+                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <!-- Body Field -->
+    <Label text="Message:" style="-fx-font-weight: bold;"/>
+    <TextArea fx:id="bodyField" promptText="Write your message here..."
+              wrapText="true" prefHeight="300" VBox.vgrow="ALWAYS"/>
+
+    <!-- Status Label -->
+    <Label fx:id="statusLabel" style="-fx-text-fill: green;"/>
+
+    <!-- Buttons -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Clear" onAction="#handleClear" prefWidth="100"/>
+        <Button text="Send" onAction="#handleSend" prefWidth="100"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </HBox>
+
+</VBox>
