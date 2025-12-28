@@ -24,7 +24,7 @@ public class EmailConfig {
     }
 
     public static String getPassword() {
-        return config.getProperty("email.password", "oydi zkuu segp ijwz");
+        return config.getProperty("email.password", "that was my app password");
     }
 
     public static String getSmtpHost() {
